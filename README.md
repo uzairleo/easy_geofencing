@@ -136,4 +136,4 @@ If you would like to contribute to the plugin (e.g. by improving the documentati
 
 ## Author
 
-This easy_geofencing plugin for Flutter is developed by [uzairleo](https://uzairleo.github.io/uzairleo-resume/#/).
+This easy_geofencing plugin for Flutter is developed by [uzairleo](https://github.com/uzairleo).
