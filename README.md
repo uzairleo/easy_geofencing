@@ -16,6 +16,8 @@ Easy Geofencing is a flutter geofencing package for flutter application (android
 
 ## USAGE
 
+![usage](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0jeVzQXjiGjkHHxuR3NpYIrSra17ApYRVKQ&usqp=CAU)
+
 To add the easy_geofencing to your flutter application read the [install](https://pub.dev/packages/easy_geofencing/install) instructions. Below are some Android and iOS specifics that are required for the easy_geofencing to work correctly.
 
 ## FOR ANDROID
