@@ -1,8 +1,13 @@
 # EASY GEOFENCING
 
+![Easy Geofencing](https://miro.medium.com/max/3160/0*YZbbxorfoqfoxjfK.png)
+
 Easy Geofencing is a flutter geofencing package for flutter application (android & ios) which provides  geofencing functionalities.It is completely written in pure dart language.
 
+
 ## FEATURES
+
+![features](https://www.pngkit.com/png/full/423-4235401_small-feature-clipart.png)
 
 * Geofence status triggered on location changes[init,enter,exit] as a geofence Status
 * Get continuous geofence status updates
@@ -10,14 +15,14 @@ Easy Geofencing is a flutter geofencing package for flutter application (android
 * battery optimized dart package
 
 ## USAGE
-w
-To add the geofence_flutter to your flutter application read the [install](https://pub.dev/packages/geofence_flutter/install) instructions. Below are some Android and iOS specifics that are required for the geofence_flutter to work correctly.
+
+To add the easy_geofencing to your flutter application read the [install](https://pub.dev/packages/easy_geofencing/install) instructions. Below are some Android and iOS specifics that are required for the easy_geofencing to work correctly.
 
 ## FOR ANDROID
 
 **AndroidX**
 
-The geofence_flutter plugin requires the AndroidX version of the Android Support Libraries. This means you need to make sure your Android project supports AndroidX. Detailed instructions can be found [here](https://flutter.dev/docs/development/packages-and-plugins/androidx-compatibility).
+The easy_geofencing plugin requires the AndroidX version of the Android Support Libraries. This means you need to make sure your Android project supports AndroidX. Detailed instructions can be found [here](https://flutter.dev/docs/development/packages-and-plugins/androidx-compatibility).
 
 The TL;DR version is:
 
@@ -47,7 +52,7 @@ On Android you'll need to add either the `ACCESS_COARSE_LOCATION` or the `ACCESS
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 ```
 
-Starting from Android 10 you need to add the `ACCESS_BACKGROUND_LOCATION` permission (next to the `ACCESS_COARSE_LOCATION` or the `ACCESS_FINE_LOCATION` permission) if you want to continue receiving updates even when your App is running in the background (note that the geofence_flutter plugin doesn't support receiving an processing geofence status updates while running in the background):
+Starting from Android 10 you need to add the `ACCESS_BACKGROUND_LOCATION` permission (next to the `ACCESS_COARSE_LOCATION` or the `ACCESS_FINE_LOCATION` permission) if you want to continue receiving updates even when your App is running in the background (note that the easy_geofencing plugin doesn't support receiving an processing geofence status updates while running in the background):
 
 ``` xml
 <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
@@ -129,4 +134,4 @@ If you would like to contribute to the plugin (e.g. by improving the documentati
 
 ## Author
 
-This geofence_flutter plugin for Flutter is developed by [uzairleo](https://uzairleo.github.io/uzairleo-resume/#/).
+This easy_geofencing plugin for Flutter is developed by [uzairleo](https://uzairleo.github.io/uzairleo-resume/#/).
