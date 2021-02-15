@@ -1,8 +1,8 @@
 name: easy_geofencing
 description: A new Flutter package project.
 version: 0.0.1
-author:
-homepage:
+author: uzairleo<uzair.jan336@gmail.com>
+homepage: https://github.com/uzairleo/easy_geofencing
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
