@@ -1,3 +1,3 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - 2021-02-15
 
-* TODO: Describe initial release.
+*This is the initial release of easy geofencing feature which is purely written in dart.
