@@ -28,8 +28,16 @@ class EasyGeofencing {
   /// Parser method which is basically for parsing [String] values
   /// to [double] values
   ///
-  static double _parser(String value) {
-    return double.parse(value);
+  static double _parser(String? value) {
+    print("Parse value===>${value!.isEmpty}");
+    double? doubledValue = 0.0;
+    try {
+      doubledValue = double.parse(value.isEmpty ? "0" : value);
+    } catch (e) {
+      print("VALUE IS ===> $value    ${value.isEmpty}");
+      print("EXCEPTION DOUBLE===> $e");
+    }
+    return doubledValue!;
   }
 
   ///
@@ -53,9 +61,9 @@ class EasyGeofencing {
   /// then calculate the distance of changes point to the allocated geofencing area points
   ///
   static startGeofenceService(
-      {required String pointedLatitude,
-      required String pointedLongitude,
-      required String radiusMeter,
+      {required String? pointedLatitude,
+      required String? pointedLongitude,
+      required String? radiusMeter,
       int? eventPeriodInSeconds}) {
     //parsing the values to double if in any case they are coming in int etc
     double latitude = _parser(pointedLatitude);
