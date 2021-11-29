@@ -11,12 +11,12 @@ class EasyGeofencing {
   ///
   /// [ _positionStream ] is for getting stream position on location updates
   ///
-  static StreamSubscription<Position> _positionStream;
+  static StreamSubscription<Position>? _positionStream;
 
   ///
   /// [_geostream] is for geofence event stream
   ///
-  static Stream<GeofenceStatus> _geoFencestream;
+  static Stream<GeofenceStatus>? _geoFencestream;
 
   ///
   /// [_controller] is Stream controller for geofence event stream
@@ -35,7 +35,7 @@ class EasyGeofencing {
   ///
   /// For [getting geofence event stream] property which is basically returns [_geostream]
   ///
-  static Stream<GeofenceStatus> getGeofenceStream() {
+  static Stream<GeofenceStatus>? getGeofenceStream() {
     return _geoFencestream;
   }
 
@@ -53,10 +53,10 @@ class EasyGeofencing {
   /// then calculate the distance of changes point to the allocated geofencing area points
   ///
   static startGeofenceService(
-      {String pointedLatitude,
-      String pointedLongitude,
-      String radiusMeter,
-      int eventPeriodInSeconds}) {
+      {required String pointedLatitude,
+      required String pointedLongitude,
+      required String radiusMeter,
+      int? eventPeriodInSeconds}) {
     //parsing the values to double if in any case they are coming in int etc
     double latitude = _parser(pointedLatitude);
     double longitude = _parser(pointedLongitude);
@@ -72,8 +72,8 @@ class EasyGeofencing {
         _printOnConsole(
             latitude, longitude, position, distanceInMeters, radiusInMeter);
         _checkGeofence(distanceInMeters, radiusInMeter);
-        _positionStream
-            .pause(Future.delayed(Duration(seconds: eventPeriodInSeconds)));
+        _positionStream!
+            .pause(Future.delayed(Duration(seconds: eventPeriodInSeconds!)));
       });
       _controller.add(GeofenceStatus.init);
     }
@@ -103,7 +103,7 @@ class EasyGeofencing {
   ///
   static stopGeofenceService() {
     if (_positionStream != null) {
-      _positionStream.cancel();
+      _positionStream!.cancel();
     }
   }
 
@@ -114,7 +114,7 @@ class EasyGeofencing {
   ///
   static distanceBetween(lat1, lon1, lat2, lon2) {
     var p = 0.017453292519943295;
-    var c = cos;
+    var c = cos as double Function(num?);
     var a = 0.5 -
         c((lat2 - lat1) * p) / 2 +
         c(lat1 * p) * c(lat2 * p) * (1 - c((lon2 - lon1) * p)) / 2;

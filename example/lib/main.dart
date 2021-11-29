@@ -27,9 +27,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, this.title}) : super(key: key);
 
-  final String title;
+  final String? title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -39,11 +39,11 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController latitudeController = new TextEditingController();
   TextEditingController longitudeController = new TextEditingController();
   TextEditingController radiusController = new TextEditingController();
-  StreamSubscription<GeofenceStatus> geofenceStatusStream;
+  StreamSubscription<GeofenceStatus>? geofenceStatusStream;
   Geolocator geolocator = Geolocator();
   String geofenceStatus = '';
   bool isReady = false;
-  Position position;
+  Position? position;
   @override
   void initState() {
     super.initState();
@@ -53,23 +53,23 @@ class _MyHomePageState extends State<MyHomePage> {
   getCurrentPosition() async {
     position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
-    print("LOCATION => ${position.toJson()}");
+    print("LOCATION => ${position!.toJson()}");
     isReady = (position != null) ? true : false;
   }
 
   setLocation() async {
     await getCurrentPosition();
     latitudeController =
-        new TextEditingController(text: position.latitude.toString());
+        new TextEditingController(text: position!.latitude.toString());
     longitudeController =
-        new TextEditingController(text: position.longitude.toString());
+        new TextEditingController(text: position!.longitude.toString());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title!),
         actions: [
           IconButton(
             icon: Icon(Icons.my_location),
@@ -120,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         radiusMeter: radiusController.text,
                         eventPeriodInSeconds: 5);
                     if (geofenceStatusStream == null) {
-                      geofenceStatusStream = EasyGeofencing.getGeofenceStream()
+                      geofenceStatusStream = EasyGeofencing.getGeofenceStream()!
                           .listen((GeofenceStatus status) {
                         print(status.toString());
                         setState(() {
@@ -138,7 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     print("stop");
                     EasyGeofencing.stopGeofenceService();
-                    geofenceStatusStream.cancel();
+                    geofenceStatusStream!.cancel();
                   },
                 ),
               ],
