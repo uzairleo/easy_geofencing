@@ -59,10 +59,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   setLocation() async {
     await getCurrentPosition();
+    // print("POSITION => ${position!.toJson()}");
     latitudeController =
-        new TextEditingController(text: position!.latitude.toString());
+        TextEditingController(text: position!.latitude.toString());
     longitudeController =
-        new TextEditingController(text: position!.longitude.toString());
+        TextEditingController(text: position!.longitude.toString());
   }
 
   @override
