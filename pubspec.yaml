@@ -1,17 +1,17 @@
 name: easy_geofencing
 description: This is a dart package which give the best & optimized geofence background services features for both android & ios.
-version: 0.2.0
+version: 0.2.1
 author: uzairleo<uzair.jan336@gmail.com>
 homepage: https://github.com/uzairleo/easy_geofencing
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.17.0 <2.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  geolocator: ^7.7.1  
+  geolocator: ^9.0.2
 
 dev_dependencies:
   flutter_test:
