@@ -22,7 +22,7 @@ class EasyGeofencing {
   /// [_controller] is Stream controller for geofence event stream
   ///
   static StreamController<GeofenceStatus> _controller =
-      StreamController<GeofenceStatus>();
+      StreamController<GeofenceStatus>.broadcast();
 
   ///
   /// Parser method which is basically for parsing [String] values
@@ -73,8 +73,9 @@ class EasyGeofencing {
     if (_positionStream == null) {
       _geoFencestream = _controller.stream;
       _positionStream = Geolocator.getPositionStream(
-        desiredAccuracy: LocationAccuracy.high,
-      ).listen((Position position) {
+          locationSettings: LocationSettings(
+        accuracy: LocationAccuracy.high,
+      )).listen((Position position) {
         double distanceInMeters = Geolocator.distanceBetween(
             latitude, longitude, position.latitude, position.longitude);
         _printOnConsole(
@@ -98,9 +99,9 @@ class EasyGeofencing {
   ///
   static _checkGeofence(double distanceInMeters, double radiusInMeter) {
     if (distanceInMeters <= radiusInMeter) {
-      _controller.add(GeofenceStatus.enter);
+      _controller.sink.add(GeofenceStatus.enter);
     } else {
-      _controller.add(GeofenceStatus.exit);
+      _controller.sink.add(GeofenceStatus.exit);
     }
   }
 
@@ -112,6 +113,7 @@ class EasyGeofencing {
   static stopGeofenceService() {
     if (_positionStream != null) {
       _positionStream!.cancel();
+      _positionStream = null;
     }
   }
 
